@@ -18,5 +18,13 @@ def play_game(words):
     chosen_word = choose_word(words)
     print("Guess a letter:", chosen_word)
 
+    guessed_letters = set()
+    attempts = 6
+
+    while attempts > 0:
+        display = "".join(letter if letter in guessed_letters else "_" for letter in chosen_word)
+        print("\nWord:", display)
+        print("Attempts left:", attempts)
+
 choose_word(words)
 play_game(words)    
