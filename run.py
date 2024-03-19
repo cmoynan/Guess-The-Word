@@ -27,5 +27,13 @@ def play_game(words):
 
         guess = input("Guess a letter: ").lower()
 
+        if guess in guessed_letters:
+            print("You already guessed that letter!")
+        elif guess in chosen_word:
+            print("Correct guess!")
+            guessed_letters.add(guess)
+            if set(guessed_letters) == set(chosen_word):
+                print("Congratulations! You guessed the word:", chosen_word)
+                return
 choose_word(words)
 play_game(words)    
