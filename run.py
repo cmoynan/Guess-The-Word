@@ -21,6 +21,11 @@ def play_game(words):
     attempts = 6
 
     while attempts > 0:
+        """
+        manages the main loop of the game. It displays the current state of the 
+        word being guessed and the number of attempts left, and it continues looping 
+        until the player either guesses the word correctly or runs out of attempts
+        """
         display = "".join(letter if letter in guessed_letters else "_" for letter in chosen_word)
         print("\nWord:", display)
         print("Attempts left:", attempts)
@@ -31,8 +36,10 @@ def play_game(words):
             print("You already guessed that letter!")
         elif guess in chosen_word:
             print("Correct guess!")
+            # Add the guessed letter to the set of guessed letters.
             guessed_letters.add(guess)
             if set(guessed_letters) == set(chosen_word):
+                # If the set of guessed letters is equal to the set of letters in the chosen word:
                 print("Congratulations! You guessed the word:", chosen_word)
                 return
 choose_word(words)
