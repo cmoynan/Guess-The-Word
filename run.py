@@ -26,5 +26,7 @@ def play_game(words):
         print("\nWord:", display)
         print("Attempts left:", attempts)
 
+        guess = input("Guess a letter: ").lower()
+
 choose_word(words)
 play_game(words)    
