@@ -12,3 +12,5 @@ def play_game():
     """
     print("Welcome to Guess the Word!")
     print("Try to guess the word within 6 attempts.")
+
+play_game()    
