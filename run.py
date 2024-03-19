@@ -42,5 +42,11 @@ def play_game(words):
                 # If the set of guessed letters is equal to the set of letters in the chosen word:
                 print("Congratulations! You guessed the word:", chosen_word)
                 return
+
+        else:
+            print("Incorrect guess!")
+            attempts -= 1
+
+    print("Sorry, you ran out of attempts.Better luck next time. The word was:", chosen_word)               
 choose_word(words)
 play_game(words)    
