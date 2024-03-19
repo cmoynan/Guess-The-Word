@@ -15,4 +15,5 @@ def play_game(words):
     print("Welcome to Guess the Word!")
     print("Try to guess the word within 6 attempts.")
 
-play_game()    
+choose_word(words)
+play_game(words)    
