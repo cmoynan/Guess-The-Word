@@ -6,7 +6,9 @@ def choose_word(words):
     """
     Randomly chooses a word from the array to begin the game.
     """
-    return random.choice(words)
+    chosen_word = random.choice(words)
+    print("Chosen word:", chosen_word)
+    return chosen_word
 
 def play_game(words):
     """
@@ -14,6 +16,7 @@ def play_game(words):
     """
     print("Welcome to Guess the Word!")
     print("Try to guess the word within 6 attempts.")
+    chosen_word = choose_word(words)
 
 choose_word(words)
 play_game(words)    
