@@ -1,3 +1,5 @@
+import random
+
 words = ["apple", "banana", "orange", "strawberry", "grape", "pineapple", "watermelon", "mango", "melon", "cranberry"]
 
 def choose_word(words):
@@ -6,7 +8,7 @@ def choose_word(words):
     """
     return random.choice(words)
 
-def play_game():
+def play_game(words):
     """
     Main game function.
     """
