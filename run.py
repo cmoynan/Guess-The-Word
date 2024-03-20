@@ -47,6 +47,21 @@ def play_game(words):
             print("Incorrect guess!")
             attempts -= 1
 
-    print("Sorry, you ran out of attempts.Better luck next time. The word was:", chosen_word)               
+    print("Sorry, you ran out of attempts.Better luck next time. The word was:", chosen_word)  
+
+def restart_game():
+    """
+    Asks the player if they want to play again and returns True if yes, False otherwise.
+    """
+    while True:
+        play_again = input("Do you want to play again? (y/n): ").lower()
+        if play_again == 'y':
+            return True
+        elif play_again == 'n':
+            return False
+        else:
+            print("Invalid input. Please enter 'y' to play again or 'n' to quit.")    
+
 choose_word(words)
-play_game(words)    
+play_game(words)
+restart_game()    
