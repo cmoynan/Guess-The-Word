@@ -49,19 +49,18 @@ def play_game(words):
     
     if not restart_game():
         print("Thanks for playing! Goodbye.")
-
-    print("Sorry, you ran out of attempts.Better luck next time. The word was:", chosen_word)  
+  
 
 def restart_game():
     """
     Asks the player if they want to play again and returns True if yes, False otherwise.
     """
     while True:
-        play_again = input("Do you want to play again? (y/n): ").lower()
+        play_again = input("\nDo you want to play again? (y/n): ").lower()
         if play_again == 'y':
             return play_game(words)
         elif play_again == 'n':
-            return False
+            print("\nThanks for playing. We hope to see you again soon")
         else:
             print("Invalid input. Please enter 'y' to play again or 'n' to quit.")    
 
