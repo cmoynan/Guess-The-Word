@@ -40,7 +40,7 @@ def play_game(words):
             guessed_letters.add(guess)
             if set(guessed_letters) == set(chosen_word):
                 # If the set of guessed letters is equal to the set of letters in the chosen word:
-                print("\nCongratulations! You guessed the word correctly. You guessed the word:", chosen_word)
+                print("\nCongratulations! You guess the word correctly. The word was:", chosen_word)
                 return
 
         else:
