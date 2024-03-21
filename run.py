@@ -31,7 +31,12 @@ def play_game(words):
         print("\nWord:", display)
         print("Attempts left:", attempts)
 
-        guess = input("Guess a letter: ").lower()
+        while True:
+            guess = input("Guess a letter: ").lower()
+            if len(guess) == 1 and guess.isalpha():
+                break
+            else:
+                print("Error: Please enter only 1 letter and only a letter")
 
         if guess in guessed_letters:
             print("You already guessed that letter!")
