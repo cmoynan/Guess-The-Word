@@ -36,10 +36,10 @@ def play_game(words):
             if len(guess) == 1 and guess.isalpha():
                 break
             else:
-                print("Error: Please enter only 1 letter and only a letter")
+                print("\033[31mError: Please enter only 1 letter and only a letter\033[0m")
 
         if guess in guessed_letters:
-            print("You already guessed that letter!")
+            print("\033[31mYou already guessed that letter!\033[0m")
         elif guess in chosen_word:
             print("Correct guess!")
             # Add the guessed letter to the set of guessed letters.
@@ -50,7 +50,7 @@ def play_game(words):
                 return
 
         else:
-            print("Incorrect guess!")
+            print("\033[31mIncorrect guess!\033[0m")
             attempts -= 1
     
     if not restart_game():
