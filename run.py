@@ -27,6 +27,7 @@ def play_game(words):
         until the player either guesses the word correctly or runs out of attempts
         """
         display = "".join(letter if letter in guessed_letters else "_" for letter in chosen_word)
+        display = " ".join(display)
         print("\nWord:", display)
         print("Attempts left:", attempts)
 
@@ -48,7 +49,7 @@ def play_game(words):
             attempts -= 1
     
     if not restart_game():
-        print("Thanks for playing! Goodbye.")
+        
   
 
 def restart_game():
@@ -58,9 +59,10 @@ def restart_game():
     while True:
         play_again = input("\nDo you want to play again? (y/n): ").lower()
         if play_again == 'y':
-            return play_game(words)
+            play_game(words)
         elif play_again == 'n':
             print("\nThanks for playing. We hope to see you again soon")
+            return
         else:
             print("Invalid input. Please enter 'y' to play again or 'n' to quit.")    
 
