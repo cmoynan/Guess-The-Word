@@ -49,6 +49,8 @@ def play_game(words):
             attempts -= 1
     
     if not restart_game():
+        return
+        
         
   
 
