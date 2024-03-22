@@ -41,12 +41,12 @@ def play_game(words):
         if guess in guessed_letters:
             print("\033[31mYou already guessed that letter!\033[0m")
         elif guess in chosen_word:
-            print("Correct guess!")
+            print("\n\033[32mCorrect guess!\033[0m")
             # Add the guessed letter to the set of guessed letters.
             guessed_letters.add(guess)
             if set(guessed_letters) == set(chosen_word):
                 # If the set of guessed letters is equal to the set of letters in the chosen word:
-                print("\nCongratulations! You guess the word correctly. The word was:", chosen_word)
+                print("\033[32m\nCongratulations! You guess the word correctly. The word was:", chosen_word, "\033[0m")
                 return
 
         else:
