@@ -7,12 +7,20 @@ def choose_word(words):
     Randomly chooses a word from the array to begin the game.
     """
     chosen_word = random.choice(words)
+    words.remove(chosen_word)
     return chosen_word
+
+    
 
 def play_game(words):
     """
     Main game function.
     """
+
+    if not words:
+        print("\n\033[31mNo words left to choose from. Game over. Thanks for Playing.\033[0m")
+        return
+
     print("Welcome to Guess the Word!")
     print("Try to guess the word within 6 attempts.")
     chosen_word = choose_word(words)
@@ -39,9 +47,9 @@ def play_game(words):
                 print("\033[31mError: Please enter only 1 letter and only a letter\033[0m")
 
         if guess in guessed_letters:
-            print("\033[31mYou already guessed that letter!\033[0m")
+            print("\n\033[31mYou already guessed that letter!\033[0m")
         elif guess in chosen_word:
-            print("\n\033[32mCorrect guess!\033[0m")
+            print("\n\n\033[32mCorrect guess!\033[0m")
             # Add the guessed letter to the set of guessed letters.
             guessed_letters.add(guess)
             if set(guessed_letters) == set(chosen_word):
@@ -50,15 +58,12 @@ def play_game(words):
                 return
 
         else:
-            print("\033[31mIncorrect guess!\033[0m")
+            print("\n\033[31mIncorrect guess!\033[0m")
             attempts -= 1
     
     if not restart_game():
         return
         
-        
-  
-
 def restart_game():
     """
     Asks the player if they want to play again and returns True if yes, False otherwise.
@@ -71,7 +76,7 @@ def restart_game():
             print("\nThanks for playing. We hope to see you again soon")
             return
         else:
-            print("Invalid input. Please enter 'y' to play again or 'n' to quit.")    
+            print("Invalid input. Please enter 'y' to play again or 'n' to quit.")             
 
 choose_word(words)
 play_game(words)
