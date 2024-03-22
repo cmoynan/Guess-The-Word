@@ -25,6 +25,10 @@ def play_game(words):
     guessed_letters = set()
     attempts = 6
 
+    if not words:
+        print("\n\033[31mNo words left to choose from. Game over.\033[0m")
+        return False
+
     while attempts > 0:
         """
         manages the main loop of the game. It displays the current state of the 
