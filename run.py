@@ -88,7 +88,7 @@ the player either guesses the word correctly or runs out of attempts
                 """
                 print(
                  "\n\033[32mCongratulations! You guessed the word correctly. "
-                 f"The word was: {chosen_word}\033[0m")
+                 f"The word was: {chosen_word}\033[0m\n")
 
                 guessed_words.append(chosen_word)
                 return True  # Return True to indicate the game ends
