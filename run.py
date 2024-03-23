@@ -31,6 +31,7 @@ def play_game(words):
     print("\nTry to guess the word within 6 attempts.")
     print("You only lose an attempt if the attempt is "
           "\033[31mincorrect\033[0m")
+    print("\033[33mThere is 10 words in total to guess from\033[0m")
     print("\n\033[33mHint: Each word is a type of fruit\033[0m")
 
     chosen_word = choose_word(words)
