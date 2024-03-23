@@ -32,8 +32,8 @@ def play_game(words):
     print("You only lose an attempt if the attempt is "
           "\033[31mincorrect\033[0m.")
     print("\033[32mThere are 10 words in total to guess from.\033[0m")
-    print("\033[33mOnce all 10 words are guessed you will be given a score\033[0m.")
-    
+    print("\n\033[33mOnce all 10 words are guessed you will be given a "
+          "score\033[0m.")
 
     chosen_word = choose_word(words)
 
@@ -116,7 +116,7 @@ def main():
 
             # Calculate the score by counting the guessed words
             score = len(guessed_words)
-            print("\n\033[33mYou guessed", score, "/10" " words correctly.\033[0m")
+            print("\n\033[33mYou guessed", score, "/10 words correct.\033[0m")
 
             # If there are no more words left to play
             if not words:
@@ -148,4 +148,3 @@ def main():
 
 
 main()
-
