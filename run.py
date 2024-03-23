@@ -27,13 +27,13 @@ def play_game(words):
         return False  # Return False to indicate the game ends
 
     # Display game instructions and hint
-    print("\n\033[33mWelcome to Guess the Word!\033[0m")
-    print("\nTry to guess the word within 6 attempts.")
+    print("\033[33mWelcome to Guess the Word!\033[0m")
+    print("Try to guess the word within 6 attempts.")
     print("You only lose an attempt if the attempt is "
           "\033[31mincorrect\033[0m.")
-    print("\n\033[32mThere are 10 words in total to guess from.\033[0m")
-    print("\nOnce all 10 words are guessed you will be given a score")
-    print("\n\033[33mHint: Each word is a type of fruit\033[0m.")
+    print("\033[32mThere are 10 words in total to guess from.\033[0m")
+    print("\033[33mOnce all 10 words are guessed you will be given a score\033[0m.")
+    
 
     chosen_word = choose_word(words)
 
@@ -57,10 +57,11 @@ the player either guesses the word correctly or runs out of attempts
 
         display = " ".join(display)
         print("\nWord:", display)
-        print("Attempts left:", attempts)
+        print("\033[31mAttempts left:\033[0m", attempts)
 
         # Ask the user to guess a letter
         while True:
+            print("\033[33mHint: Each word is a type of fruit\033[0m.")
             guess = input("\nGuess a letter: ").lower()
             if len(guess) == 1 and guess.isalpha():
                 break
