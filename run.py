@@ -113,7 +113,7 @@ def main():
 
             # Calculate the score by counting the guessed words
             score = len(guessed_words)
-            print("\n\033[33mYou guessed", score, "words correctly.\033[0m")
+            print("\n\033[33mYou guessed", score, "/10" " words correctly.\033[0m")
 
             # If there are no more words left to play
             if not words:
