@@ -8,6 +8,7 @@ def choose_word(words):
     Randomly chooses a word from the array to begin the game.
     """
     chosen_word = random.choice(words)
+     # Remove the chosen word from the list to prevent repetition
     words.remove(chosen_word)
     return chosen_word
 
@@ -18,7 +19,8 @@ def play_game(words):
     if not words:
         print("\n\033[31mNo words left to choose from. Game over.\033[0m")
         return False  # Return False to indicate the game ends
-
+    
+    # Display game instructions and hint
     print("\n\033[33mWelcome to Guess the Word!\033[0m")
     print("\nTry to guess the word within 6 attempts.")
     print("You only lose an attempt if the attempt is \033[31mincorrect\033[0m")
@@ -35,25 +37,33 @@ def play_game(words):
         word being guessed and the number of attempts left, and it continues looping 
         until the player either guesses the word correctly or runs out of attempts
         """
+        
+        # Display the current state of the word being guessed and the number of attempts left
         display = "".join(letter if letter in guessed_letters else "_" for letter in chosen_word)
         display = " ".join(display)
         print("\nWord:", display)
         print("Attempts left:", attempts)
-
+        
+        # Ask the user to guess a letter
         while True:
             guess = input("\nGuess a letter: ").lower()
             if len(guess) == 1 and guess.isalpha():
                 break
             else:
                 print("\n\033[31mError: Please enter only 1 letter and only a letter\033[0m")
-
+        
+         # Check if the guessed letter is already guessed
         if guess in guessed_letters:
             print("\033[31mYou already guessed that letter!\033[0m")
         elif guess in chosen_word:
             print("\n\033[32mCorrect guess!\033[0m")
+
             # Add the guessed letter to the set of guessed letters.
             guessed_letters.add(guess)
+
+            # Check if all letters of the word have been guessed
             if set(guessed_letters) == set(chosen_word):
+
                 # If the set of guessed letters is equal to the set of letters in the chosen word:
                 print("\n\033[32mCongratulations! You guessed the word correctly. The word was:", chosen_word, "\033[0m")
                 guessed_words.append(chosen_word)
@@ -67,19 +77,33 @@ def play_game(words):
     return True  # Return True to indicate the game ends
 
 def main():
+
+     # Make 'words' accessible globally
     global words
     correct_guesses = 0
     while True:
+
+        # If the game returns False (indicating it's over), exit the loop
         if not play_game(words):
+
+            # Calculate the score by counting the guessed words
             score = len(guessed_words)
             print("\n\033[33mYou guessed", score, "words correctly.\033[0m")
+
+            # If there are no more words left to play
             if not words:
                 print("\n\033[33mThanks for playing. We hope to see you again soon\033[0m")
                 break
+
+            # Prompt the user if they want to play again
             play_again = input("\nDo you want to play again? (y/n): ").lower()
+
+            # If the user doesn't want to play again, print a farewell message and exit the loop
             if play_again != 'y':
                 print("\033[33mThanks for playing. We hope to see you again soon\033[0m")
                 break
+
+             # Reset the 'words' list and 'guessed_words' list for a new game    
             words = ["apple", "banana", "orange", "strawberry", "grape", "pineapple", "watermelon", "mango", "melon", "cranberry"]
             guessed_words.clear()
 
